@@ -1,0 +1,88 @@
+.search {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 12px;
+    --search-button-width: 52px;
+
+    position: relative;
+    width: 500px;
+    height: 46px;
+    padding-left: 16px;
+    display: flex;
+    border: 1.5px solid transparent;
+    background: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-border-radius);
+    input {
+        flex: 1;
+        width: 431px;
+        height: 100%;
+        padding-right: 40px;
+        font-size: 1.6rem;
+        line-height: 21px;
+        background: transparent;
+        caret-color: var(--primary);
+        color: var(--black);
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: var(--black);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: var(--search-button-width);
+        width: 2px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+
+    &:hover {
+        .search-btn {
+            cursor: pointer;
+            background-color: rgba(22, 24, 35, 0.06);
+            color: var(--black);
+        }
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
+}
+.search,
+.search-result {
+    width: 500px;
+}
+
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--search-button-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+    width: 52px;
+    height: 100%;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.loading {
+}
